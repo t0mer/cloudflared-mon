@@ -1,0 +1,5 @@
+loguru
+requests
+cryptography
+schedule
+apprise
