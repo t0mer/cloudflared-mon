@@ -33,4 +33,4 @@ WORKDIR /app
 RUN pip3 install -r requirements.txt
  
  
-ENTRYPOINT ["/usr/bin/python3", "/app/voicy.py"]
+ENTRYPOINT ["/usr/bin/python3", "/app/app.py"]
