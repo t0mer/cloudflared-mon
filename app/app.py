@@ -18,7 +18,8 @@ class Monitor():
         self.account_id = os.getenv("CF_ACCOUNT_ID") 
         self.url = "https://api.cloudflare.com/client/v4/accounts/" + self.account_id + "/cfd_tunnel?is_deleted=false"
         self.headers = {"X-Auth-Email":self.email, "X-Auth-Key":self.token}   
-        self.connector = SqliteConnector()     
+        self.connector = SqliteConnector()  
+        self.connector.create_tables()
         self.notifires = os.getenv("NOTIFIERS")
         self.apobj = apprise.Apprise()
         self.init_notifires()
@@ -45,7 +46,7 @@ class Monitor():
             logger.info("Checking Tunnels Status")
             response = requests.get(monitor.url,headers = monitor.headers)
             for t in response.json()["result"]:
-                TunnelId = t["id"]
+                TunnelId = str(t["id"])
                 CurrentTunnelState = t["status"]
                 LastChanged = datetime.now()
                 if not self.connector.is_tunnel_monitored(TunnelId):
