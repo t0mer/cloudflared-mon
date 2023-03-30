@@ -71,7 +71,6 @@ class SqliteConnector:
 
     def is_tunnel_monitored(self, TunnelId):
         try:
-            logger.debug(TunnelId)
             self.open_connection()
             cursor = self.conn.cursor()
             query = "SELECT * FROM monitored_tunnels where TunnelId = '" + TunnelId + "'"
