@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+
+  cfmon:
+    image: techblog/cloudflared-mon
+    container_name: cloudflared-mon
+    restart: always
+    environment:
+      - CHECK_INTERVALS= #In seconds, default is set to 60
+      - NOTIFIERS=
+      - CF_TOKEN=
+      - CF_EMAIL=
+      - CF_ACCOUNT_ID=
+    volumes:
+      - ./cloudflared-mon/db:/app/db
