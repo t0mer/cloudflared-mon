@@ -17,7 +17,7 @@ class Monitor():
         self.email = os.getenv("CF_EMAIL")
         self.account_id = os.getenv("CF_ACCOUNT_ID") 
         self.url = "https://api.cloudflare.com/client/v4/accounts/" + self.account_id + "/cfd_tunnel?is_deleted=false"
-        self.headers = {"X-Auth-Email":self.email, "X-Auth-Key":self.token}   
+        self.headers = {"X-Auth-Email":self.email, "Authorization": "Bearer " + self.token}   
         self.connector = SqliteConnector()  
         self.connector.create_tables()
         self.notifires = os.getenv("NOTIFIERS")
@@ -43,7 +43,7 @@ class Monitor():
 
     def check_tunnels_status(self):
         try:
-            logger.info("Checking Tunnels Status")
+            # logger.info("Checking Tunnels Status")
             response = requests.get(monitor.url,headers = monitor.headers)
             for t in response.json()["result"]:
                 TunnelId = str(t["id"])
