@@ -61,7 +61,7 @@ services:
 ### Environment
 * CHECK_INTERVALS - Optional. Time in seconds between checks. Default is set to 60.
 * NOTIFIERS - Set the nofitications, using [APPRIS](https://github.com/caronc/apprise/wiki).
-* CF_TOKEN - Your cloudflare account token. this can be found on your claoudflare profile. **Make sure to create Token with read only permissions** [Read here how](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
+* CF_TOKEN - Your cloudflare account token. this can be found on your cloudflare profile. **Make sure to create Token with read only permissions** [Read here how](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
 * CF_EMAIL - Your cloudflare account email address.
 * CF_ACCOUNT_ID - Your cloudflare account ID. The account id is part of the URL: **https://dash.cloudflare.com/xxd00270exxxxxxxxxxxxxxxxxxxxxxx**
 
